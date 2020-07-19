@@ -52,9 +52,9 @@ namespace rbx_merge
 
                 Logs.Output("Parsing path '{0}'", path);
                 var selection = parser.ParsePath(path);
-                if (!selection.IsA<BaseScript>()) throw new Exception($"Selected instance '{path}' is not a BaseScript");
+                if (!selection.IsA<BaseScript>() && !selection.IsA<ModuleScript>()) throw new Exception($"Selected instance '{path}' is not a script");
 
-                var merged = Merger.Merge(parser, (BaseScript)selection, minify);
+                var merged = Merger.Merge(parser, selection, minify);
 
                 var outputFile = File.CreateText(output);
                 outputFile.Write(merged);

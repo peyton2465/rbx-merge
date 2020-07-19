@@ -44,16 +44,18 @@ namespace rbx_merge
             return table + "\n}";
         }
 
-        public static string Merge(Parser parser, BaseScript script, bool minify)
+        public static string Merge(Parser parser, Instance script, bool minify)
         {
             _parser = parser;
             _globalImports = new Dictionary<string, string>();
+
+            var scriptGuid = script.GetProperty("ScriptGuid").Value.ToString();
 
             LoadImports(script);
             Logs.Output("Loaded {0} imports {1}", _globalImports.Count - 1, _globalImports.Count == 0 ? ".. uh oh.." : "successfully!");
 
             Logs.Output("Merging..");
-            var importsTable = BuildImportsTable(_globalImports.Where(x => x.Key != script.ScriptGuid));
+            var importsTable = BuildImportsTable(_globalImports.Where(x => x.Key != scriptGuid));
 
             var assembly = Assembly.GetExecutingAssembly();
             var resource = assembly.GetManifestResourceNames().FirstOrDefault(x => x.EndsWith("MergeTemplate.lua"));
@@ -62,7 +64,7 @@ namespace rbx_merge
             using (var stream = assembly.GetManifestResourceStream(resource))
             using (var reader = new StreamReader(stream)) 
             {
-                var output = string.Format(reader.ReadToEnd(), importsTable, _globalImports[script.ScriptGuid]);
+                var output = string.Format(reader.ReadToEnd(), importsTable, _globalImports[scriptGuid]);
                 if (minify)
                 {
                     Logs.Output("Minifying..");
