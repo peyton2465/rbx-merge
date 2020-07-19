@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>rbx_merge</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="MergeTemplate.lua" />
+    <None Remove="Resources\lookups.lua" />
+    <None Remove="Resources\main.lua" />
+    <None Remove="Resources\methods.lua" />
+    <None Remove="Resources\minify.lua" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\lookups.lua" />
+    <EmbeddedResource Include="Resources\main.lua" />
+    <EmbeddedResource Include="Resources\MergeTemplate.lua">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\methods.lua" />
+    <EmbeddedResource Include="Resources\minify.lua" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="4.1.0" />
+    <PackageReference Include="Fody" Version="6.2.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Konscious.Security.Cryptography.Blake2" Version="1.0.9" />
+    <PackageReference Include="lz4net" Version="1.0.15.93" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.20303.1" />
+  </ItemGroup>
+
+</Project>
