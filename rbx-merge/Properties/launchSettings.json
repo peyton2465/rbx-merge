@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "rbx-merge": {
-      "commandName": "Project",
-      "commandLineArgs": "-i ui.rbxl -p game.StarterGui.ui_lib.LocalScript"
-    }
-  }
-}
