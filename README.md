@@ -16,3 +16,5 @@ https://github.com/CloneTrooper1019/Roblox-File-Format
 https://github.com/Myndale/KopiLua
 
 https://github.com/Rerumu/lua-minify
+
+https://github.com/Nexure (for help with regex and lua things)
