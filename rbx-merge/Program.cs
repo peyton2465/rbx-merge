@@ -1,14 +1,14 @@
 ﻿using RobloxFiles;
 using System;
-using System.IO;
 using System.CommandLine;
-using System.Threading.Tasks;
 using System.CommandLine.Invocation;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace rbx_merge
 {
     public class Program
-    { 
+    {
         public static async Task<int> Main(string[] args)
         {
             var rootCommand = new RootCommand("Merges required Roblox modules into a single script.") {
