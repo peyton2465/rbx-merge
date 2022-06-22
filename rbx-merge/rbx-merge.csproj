@@ -32,7 +32,7 @@
     </PackageReference>
     <PackageReference Include="Konscious.Security.Cryptography.Blake2" Version="1.0.9" />
     <PackageReference Include="lz4net" Version="1.0.15.93" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.20303.1" />
   </ItemGroup>
 
